@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="test">
+    测试
+  </button>
+</body>
+
+<script src="./js/debounce.js"></script>
+<script >
+  const btn  = document.querySelector('#test')
+  // debounce
+  btn.addEventListener('click', throttle(() => {
+      console.log('测试哈！！');
+    }, 1000))
+  let isInstance= myInstanceOf(function(){},Function)
+  console.log('isInstance:', isInstance);
+
+  function Person(age){
+    this.age = age
+  }
+  Person.prototype.say=function(){
+    console.log('this.age:',this.age);
+  }
+  const myPerson = myNew(Person,18)
+  console.log(myPerson,'person');
+  function test(args){
+    console.log(this.age, args);
+  }
+  console.log(test.myCall(myPerson,'myCall'));
+  console.log(test.myApply(myPerson, ['myApply']));
+  console.log(test.myBind(myPerson, ['myApply'])());
+
+  const cloneObj = deepClone(myPerson)
+  console.log(cloneObj === myPerson,'cloneObj', cloneObj);
+
+
+</script>
+
+
+
+</html>
